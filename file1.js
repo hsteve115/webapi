@@ -17,6 +17,14 @@ const readline = require('readline-sync')
 // while a value is not met, such as a variable not being more than 5. Another is the for loop which works in a similar way.
 //String is used to take the entry of the user and turns it into a string object 
 //removing any white space by using trim
+//'===' is used for Strict Equality Comparison where the result is only true if both the value and data types match.
+//This is the preferred choice in all situations.'==' is used for Abstract Equality Comparison and works 
+//by automatically converting both values to a common type. This can lead to obscure bugs and so should be avoided.
+// if we wanted to take and value and cut it in half from a certain point we could use const space = input.indexOf(' ')
+//This would find the first white space, but this could be set to a value such as the word harry. it then assigns where the word
+//starts to a variable , then this is const item = input.substring(space).trim() used to take anything after that value as a 
+//new string and trims and white space 
+
 const username = String(readline.question('your name: ')).trim()
 switch(username) {
   case 'John':
