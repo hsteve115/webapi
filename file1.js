@@ -11,8 +11,14 @@ const readline = require('readline-sync')
 
 //this will take the username entered it at the command line and return a value if the value matches one of the cases
 //cases work in the same manner as if statements and are tested in sequence if non is matched then default is triggered.
+//possible functions used in javascript, indexof this will taken a string, Then against a value you have selected which can be
+//a string, array and it will return the starting position of that occurnace or its position in the array. array start at 0
+// a loop is also an essential part of javascript a common one is do..while. This was carry out what is set in the do brackets {} 
+// while a value is not met, such as a variable not being more than 5. Another is the for loop which works in a similar way.
+//String is used to take the entry of the user and turns it into a string object 
+//removing any white space by using trim
 const username = String(readline.question('your name: ')).trim()
-switch(name) {
+switch(username) {
   case 'John':
     console.log('your name is John')
     break
