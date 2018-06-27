@@ -24,7 +24,19 @@ const readline = require('readline-sync')
 //This would find the first white space, but this could be set to a value such as the word harry. it then assigns where the word
 //starts to a variable , then this is const item = input.substring(space).trim() used to take anything after that value as a 
 //new string and trims and white space 
+// ${} can be used to place a const into a sentence or within ""
+//to create an array use const arry = [], this will create an empty array called arry 
+// to add an element to the end of the arry push is used, arry.push(~the value to add~)
+// error catching can be done by using a try-catch-finally statement
+// try {} will test what is written within the brackets, if a error occurs it will be caught. if no error finally is used, however finally occurs either way.
+// sometimes we may want to take multiple parameters, these can be given when the file is called. node file1.js dog
+//the array which these parameters are held in is called argv
+//to view the parameters we use console.log(process.argv )
 
+
+//The below currently makes use of the commands and user inputs after the program is called, however we can change this so it takes a parameter and tests that.
+
+console.log(process.argv)
 const username = String(readline.question('your name: ')).trim()
 switch(username) {
   case 'John':
