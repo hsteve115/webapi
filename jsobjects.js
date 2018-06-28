@@ -37,5 +37,10 @@ function Employee(id, Name, Grade){
 //and their conceding properties. this is the returned making a new employye as emp1
 
 const emp1 = new Employee("001","David Band","A")
-
+//a function called instance of can be used, this will ensure that the new object matches the parts of the
+//construtor. Meaning if a new constuctor was created to contruct a dog object, and had properties such 
+//as breed, age etc. then instnace of would return false if we tested emp1 against
+//dog however using instance of with emp1 and Employee or Object will return false. this can be 
+//used to test an entry as to what it should match. is the entry or value passed a instance of Employee or not
+console.log(Employee)
 console.log(emp1)
