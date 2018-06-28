@@ -32,6 +32,10 @@ function Employee(id, Name, Grade){
   this.payGrade = Grade
   
 }
+//creates a brand new empty object called empl1, it then calls the 
+//function which makes use of this to assign the empl1 properties as an employee
+//and their conceding properties. this is the returned making a new employye as emp1
 
 const emp1 = new Employee("001","David Band","A")
+
 console.log(emp1)
