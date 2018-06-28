@@ -16,3 +16,22 @@
 //we tried to use a nonexistent object or went person.address.postcode 
 
 //construtors
+
+'use strict'
+const readline = require("readline-sync")
+function Employee(id, Name, Grade){
+  const last = Name.indexOf(" ")
+  const second = Name.substring(last)
+  const first = Name.substring(0,last)
+
+  this.Empid = id
+  this.name = {
+    "first-Name" : first,
+    surname : second  
+  }
+  this.payGrade = Grade
+  
+}
+
+const emp1 = new Employee("001","David Band","A")
+console.log(emp1)
