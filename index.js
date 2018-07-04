@@ -51,9 +51,9 @@ server.post('/Account/:Username/:Password/:Name/:Company', (req,res) => {
 
 	})
 })
-//This is used to update a users favourite by using the id to find that specific file
-server.put('/favourites/:Username/:Password/:Film/:Year/:id/:updateattr', (req, res) => {
-	films.UpdateFavourite(req,(err,data) => {
+//This is used to update a password 
+server.put('/Account/:Username/:Password/:NewPassword', (req, res) => {
+	BusinessAccount.Update(req,(err,data) => {
 		res.setHeader('content-type','application/json')
 		res.setHeader('accepts','GET,PUT')
 		if (err) {
@@ -68,9 +68,9 @@ server.put('/favourites/:Username/:Password/:Film/:Year/:id/:updateattr', (req, 
 
 })
 
-//improve
+//Delete An Existing Account
 server.del('/favourites/:Username/:Password/:Film/:Year/:id', (req, res) => {
-	films.DeleteFavourite(req,(err,data) => {
+	BusinessAccount.DeleteFavourite(req,(err,data) => {
 		res.setHeader('content-type','application/json')
 		res.setHeader('accepts','GET, DELETE')
 		if (err) {
@@ -85,163 +85,6 @@ server.del('/favourites/:Username/:Password/:Film/:Year/:id', (req, res) => {
 	// req.params.id
 })
 
-server.get('/favourites/:Username/:Password',(req,res) => {
-	films.ShowFavourites(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET')
-		if (err) {
-			res.send(status.badRequest,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-
-////////////////////////////////////////////////////
-server.get('/favourites/Genre/:Genre/:Username/:Password',(req,res) => {
-	films.FilterFavouritesGenre(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET')
-		if (err) {
-			res.send(status.badRequest,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-
-////////////////////////////////////////////////////
-server.get('/favourites/SortTitle/SortValue/:Username/:Password',(req,res) => {
-	films.SortByTitle(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET')
-		if (err) {
-			res.send(status.badRequest,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-
-
-////////////////////////////////////////////////////
-server.get('/favourites/Director/:Director/:Username/:Password',(req,res) => {
-	films.FilterFavouritesDirector(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET')
-		if (err) {
-			res.send(status.badRequest,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-/////////////////////////////////////////////////
-//search a film or showtimes when not a logged in user
-server.get('/film/:Film/:Year', (req,res) => {
-	films.SearchReview (req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET')
-		if (err) {
-			res.send(status.badRequest,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-
-})
-
-server.get('/showtimes/:Postcode', (req,res) => {
-	films.GetShowtimes(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET , POST')
-		if (err) {
-			res.send(status.badRequest,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-////////////////////////////////////
-
-
-server.post('/newaccount/:Username/:Password/:Fullname',(req,res) => {
-	films.CreateUser(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET , POST')
-		if (err) {
-			res.send(status.NotCreated,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-
-server.get('/account/:Username/:Password',(req,res) => {
-	films.GetUser(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET')
-		if (err) {
-			res.send(status.badRequest,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-
-server.del('/account/:Username/:Password/:id',(req,res) => {
-	films.DeleteUser(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET , DELETE')
-		if (err) {
-			res.send(status.NotDeleted,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
-
-server.put('/account/:Username/:Password/:id/:updateattr',(req,res) => {
-	films.UpdateUser(req,(err,data) => {
-		res.setHeader('content-type','application/json')
-		res.setHeader('accepts','GET , PUT')
-		if (err) {
-			res.send(status.NotModified,err)
-		} else {
-			res.send(status.ok,data)
-		}
-
-		res.end()
-
-	})
-})
 
 
 const port = process.env.PORT || 8080
